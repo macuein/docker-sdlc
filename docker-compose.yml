@@ -1,0 +1,22 @@
+version: '2'
+services:
+
+  go-server:
+    image: gocd/gocd-server:v18.10.0
+    ports:
+      - "8153:8153"
+      - "8154:8154"
+    volumes:
+      - ./goserverdata:/godata
+      - ./goserverhome:/home/go
+
+  go-agent001:
+    image: gocd/gocd-agent-alpine-3.8:v18.10.0
+    links:
+      - "go-server"
+    depends_on:
+      - "go-server"
+    environment:
+      AGENT_AUTO_REGISTER_KEY: '123456789abcdefgh987654321'
+      GO_SERVER_URL: https://go-server:8154/go
+  
