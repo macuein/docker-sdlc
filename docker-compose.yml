@@ -11,7 +11,7 @@ services:
       - ./goserverhome:/home/go
 
   go-agent001:
-    image: gocd/gocd-agent-alpine-3.8:v18.10.0
+    image: gocd-agent-sdlc:1.0
     links:
       - "go-server"
     depends_on:

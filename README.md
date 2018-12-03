@@ -2,21 +2,27 @@
 Docker files for SDLC components.... GoCD, Jenkins, repos, etc
 
 
-
+Source code
+	Github
+	Bitbucket
+	Other Git Server
 CI/CD
 	GOCD
 	Jenkins
 Repository
 	Artifactory
-Source code
-	Git (Github)
+	Nexis
+Monitoring
+	Prometheus
+Logging
+	ELK Stack
+Security
 
 
 
 
-docker-compose up
-
-
+docker-compose up -d
+docker-compose down
 
 
 GOCD Server
