@@ -1,2 +1,10 @@
 # Log file
 *.log
+**/cache
+**/tmp
+**/db
+**/logs
+**/goserverdata
+**/goserverhome
+**/nexusdata
+

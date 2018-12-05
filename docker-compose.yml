@@ -1,4 +1,5 @@
 version: '2'
+
 services:
 
   go-server:
@@ -20,3 +21,20 @@ services:
       AGENT_AUTO_REGISTER_KEY: '123456789abcdefgh987654321'
       GO_SERVER_URL: https://go-server:8154/go
   
+  go-agent002:
+    image: gocd-agent-sdlc:1.0
+    links:
+      - "go-server"
+    depends_on:
+      - "go-server"
+    environment:
+      AGENT_AUTO_REGISTER_KEY: '123456789abcdefgh987654321'
+      GO_SERVER_URL: https://go-server:8154/go
+
+  nexus:
+    image: sonatype/nexus3:3.14.0
+    ports:
+      - "8081:8081"
+      - "8123:8123"
+    volumes:
+      - ./nexusdata:/nexus-data
